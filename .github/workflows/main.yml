@@ -1,4 +1,4 @@
-name: run script main.py
+name: run V
 
 on:
   schedule:

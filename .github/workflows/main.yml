@@ -1,5 +1,10 @@
-name: run V
-root
+name: run script main.py
+
+on:
+  push:
+    branches:
+      - main # Trigger this workflow only on pushes to the main branch
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -24,7 +29,6 @@ jobs:
           file_password: ${{ secrets.file_password }}
           password: ${{ secrets.password }}
 
-
         run: python main.py
           
       - name: commit files
@@ -39,4 +43,4 @@ jobs:
         uses: ad-m/github-push-action@v0.6.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: main 
+          branch: main
